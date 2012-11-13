@@ -7,13 +7,13 @@ function Die(color) {
 	
 	switch(color) {
 		case 'red':
-			this.side = ['brain','run','run','bang','bang','bang'];
+			this.imgs = ['brain','run','run','bang','bang','bang'];
 			break;
 		case 'yellow':
-			this.side = ['brain','brain','run','run','bang','bang'];
+			this.imgs = ['brain','brain','run','run','bang','bang'];
 			break;
 		case 'green':
-			this.side = ['brain','brain','brain','run','run','bang'];
+			this.imgs = ['brain','brain','brain','run','run','bang'];
 			break;
 	}
 };
@@ -21,21 +21,13 @@ function Die(color) {
 Die.prototype.roll = function() {
 	//Roll the dice!
 	var number = Math.floor((Math.random()*6)+1);
-	this.side = this.side[number];
+	this.side = this.imgs[number];
+	this.img = 'dice/' + this.color + '_' + this.side + '.png';
 }
 
 //The dice
 //TODO: find an elegant way of doing this
-var red1    = new Die('red');
-var red2    = new Die('red');
-var red3    = new Die('red');
-var yellow1 = new Die('yellow');
-var yellow2 = new Die('yellow');
-var yellow3 = new Die('yellow');
-var yellow4 = new Die('yellow');
-var green1  = new Die('green');
-var green2  = new Die('green');
-var green3  = new Die('green');
-var green4  = new Die('green');
-var green5  = new Die('green');
-var green6  = new Die('green');
+var dicecup = new Array();
+for (var i=0;i<3;i++) { dicecup[i] = new Die('red'); }
+for (var j=0;j<4;i++) { dicecup[j] = new Die('yellow'); }
+for (var k=0;k<6;i++) { dicecup[k] = new Die('green'); }
